@@ -1,5 +1,8 @@
 DartGap Samples
 ===============
 
-* **api-usage** simple project that shows usage of the DartGap API
-* **dart-warrior** A advanced HTML5 mobile jewel game (work in progress)
+The following sample projects exists 
+
+* **api** Project that shows usage of the DartGap API
+* **dart-warrior** HTML5 mobile Jewel game (work in progress)
+

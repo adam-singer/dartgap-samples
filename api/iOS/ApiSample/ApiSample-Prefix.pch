@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'ApiSample' target in the 'ApiSample' project
+//
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+#endif
