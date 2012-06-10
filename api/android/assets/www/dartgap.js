@@ -52,6 +52,18 @@ DartGap.MessageHandler = function() {
 	var cache = {};
 
   	return {
+  		"accelerometer": function(message, callback) {
+  			function errorCallback(err) {
+    			alert("Accelerometer error: " + err.code);
+			}
+			switch(message.type) {
+				case "current":
+					navigator.accelerometer.getCurrentAcceleration(callback, errorCallback);
+			    	break;
+			    default:
+			    	throw "unhandled accelerometer message type " + message.type;
+			}
+	  	},
 		"database": function(message, callback) {
 		    var db = cache[message.content.connectionId],
 		    	executeSql, 
@@ -74,15 +86,15 @@ DartGap.MessageHandler = function() {
 				    queryResult[queryNumber] = result;
 				};
 				return resultCollector;
-			};
+			}
 
 			function errorCallback(err) {
     			alert("Error processing SQL: " + err.code);
-			};
+			}
 
 			function successCallback() {
 				callback(queryResult);
-			};    
+			}    
 		    
 		    switch(message.type) {
 		    	case "changeVersion":

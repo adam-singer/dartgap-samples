@@ -426,16 +426,16 @@ $$.HashSetImplementation = {"":
   var result = $.HashSetImplementation$0();
   $.setRuntimeTypeInfo(result, ({E: 'E'}));
   t1.result_2 = result;
-  $.forEach(this._backingMap, new $.Closure37(t1));
+  $.forEach(this._backingMap, new $.Closure40(t1));
   return t1.result_2;
  },
  forEach$1: function(f) {
   var t1 = ({});
   t1.f_14 = f;
-  $.forEach(this._backingMap, new $.Closure36(t1));
+  $.forEach(this._backingMap, new $.Closure39(t1));
  },
  addAll$1: function(collection) {
-  $.forEach(collection, new $.Closure35(this));
+  $.forEach(collection, new $.Closure38(this));
  },
  remove$1: function(value) {
   if (this._backingMap.containsKey$1(value) !== true) {
@@ -696,7 +696,7 @@ $$.DoubleLinkedQueue = {"":
  first$0: function() {
   return this._sentinel.get$_next().get$element();
  },
- get$first: function() { return new $.Closure38(this, 'first$0'); },
+ get$first: function() { return new $.Closure41(this, 'first$0'); },
  removeLast$0: function() {
   return this._sentinel.get$_previous().remove$0();
  },
@@ -953,7 +953,7 @@ $$.ListIterator = {"":
  }
 };
 
-$$.Closure39 = {"":
+$$.Closure42 = {"":
  [],
  super: "Object",
  toString$0: function() {
@@ -985,7 +985,7 @@ $$.ConstantMap = {"":
  forEach$1: function(f) {
   var t1 = ({});
   t1.f_13 = f;
-  $.forEach(this._lib2_keys, new $.Closure27(this, t1));
+  $.forEach(this._lib2_keys, new $.Closure26(this, t1));
  },
  operator$index$1: function(key) {
   if (this.containsKey$1(key) !== true) {
@@ -1338,7 +1338,7 @@ $$.FilteredElementList = {"":
   $.clear(this._childNodes);
  },
  removeRange$2: function(start, rangeLength) {
-  $.forEach($.getRange(this.get$_filtered(), start, rangeLength), new $.Closure26());
+  $.forEach($.getRange(this.get$_filtered(), start, rangeLength), new $.Closure25());
  },
  addLast$1: function(value) {
   this.add$1(value);
@@ -1349,7 +1349,7 @@ $$.FilteredElementList = {"":
  add$1: function(value) {
   $.add$1(this._childNodes, value);
  },
- get$add: function() { return new $.Closure40(this, 'add$1'); },
+ get$add: function() { return new $.Closure43(this, 'add$1'); },
  set$length: function(newLength) {
   var len = $.get$length(this);
   if ($.geB(newLength, len)) {
@@ -1378,7 +1378,7 @@ $$.FilteredElementList = {"":
  },
  first$0: function() { return this.get$first().$call$0(); },
  get$_filtered: function() {
-  return $.List$from($.filter(this._childNodes, new $.Closure24()));
+  return $.List$from($.filter(this._childNodes, new $.Closure23()));
  },
  is$List2: function() { return true; },
  is$Collection: function() { return true; }
@@ -1440,7 +1440,7 @@ $$._ChildrenElementList = {"":
   var t1 = ({});
   t1.f_12 = f;
   var output = [];
-  this.forEach$1(new $.Closure25(t1, output));
+  this.forEach$1(new $.Closure24(t1, output));
   return $._FrozenElementList$_wrap$1(output);
  },
  forEach$1: function(f) {
@@ -2034,6 +2034,21 @@ $$._DartGapImpl2 = {"":
  }
 };
 
+$$._DeviceAccelerometerImpl = {"":
+ ["area", "_router"],
+ super: "_DeviceAware",
+ get$currentAcceleration: function() {
+  var t1 = ({});
+  var completer = $.CompleterImpl$0();
+  $.setRuntimeTypeInfo(completer, ({T: 'Map'}));
+  t1.completer_13 = completer;
+  var message = this.createMessage$1('current');
+  message.set$callback(new $.Closure34(t1));
+  this.sendMessage$1(message);
+  return t1.completer_13.get$future();
+ }
+};
+
 $$._DeviceAware = {"":
  ["area?"],
  super: "Object",
@@ -2064,11 +2079,11 @@ $$._DeviceDatabaseImpl = {"":
   t1.completer_12 = completer;
   var message = this._connectionMessage$1('executeBatch');
   $.indexSet(message.get$content(), 'queries', queries);
-  message.set$callback(new $.Closure21(t1));
+  message.set$callback(new $.Closure30(t1));
   this.sendMessage$1(message);
   return t1.completer_12.get$future();
  },
- get$_batchExecutor: function() { return new $.Closure40(this, '_batchExecutor$1'); },
+ get$_batchExecutor: function() { return new $.Closure43(this, '_batchExecutor$1'); },
  batchSql$1: function(sql) {
   var batch = $._SQLBatchImpl$1(this.get$_batchExecutor());
   batch.batchSql$1(sql);
@@ -2077,7 +2092,7 @@ $$._DeviceDatabaseImpl = {"":
 };
 
 $$._DeviceImpl = {"":
- ["notification?", "area", "_router"],
+ ["accelerometer?", "notification?", "area", "_router"],
  super: "_DeviceAware",
  openDatabase$4: function(name$, version, displayName, size) {
   var t1 = ({});
@@ -2092,7 +2107,7 @@ $$._DeviceImpl = {"":
   $.indexSet(message.get$content(), 'version', version);
   $.indexSet(message.get$content(), 'displayName', displayName);
   $.indexSet(message.get$content(), 'size', size);
-  message.set$callback(new $.Closure16(t1));
+  message.set$callback(new $.Closure21(t1));
   this.sendMessage$1(message);
   return t1.completer_2.get$future();
  },
@@ -2102,7 +2117,7 @@ $$._DeviceImpl = {"":
   $.setRuntimeTypeInfo(completer, ({T: 'DeviceInfo'}));
   t1.completer_1 = completer;
   var message = this.createMessage$1('info');
-  message.set$callback(new $.Closure18(t1));
+  message.set$callback(new $.Closure27(t1));
   this.sendMessage$1(message);
   return t1.completer_1.get$future();
  }
@@ -2177,7 +2192,7 @@ $$._DeviceMessageRouter2 = {"":
     }
   }
  },
- get$_messageRouter: function() { return new $.Closure40(this, '_messageRouter$1'); },
+ get$_messageRouter: function() { return new $.Closure43(this, '_messageRouter$1'); },
  _DeviceMessageRouter$_internal$0: function() {
   $.window().get$on().get$message().add$2(this.get$_messageRouter(), false);
  }
@@ -2195,14 +2210,14 @@ $$._DeviceNotificationImpl = {"":
   var t1 = ({});
   var completer = $.CompleterImpl$0();
   $.setRuntimeTypeInfo(completer, ({T: 'Map'}));
-  t1.completer_13 = completer;
+  t1.completer_14 = completer;
   var message = this.createMessage$1('confirm');
   $.indexSet(message.get$content(), 'dialog', dialog);
   $.indexSet(message.get$content(), 'title', title);
   $.indexSet(message.get$content(), 'labels', labels);
-  message.set$callback(new $.Closure33(t1));
+  message.set$callback(new $.Closure36(t1));
   this.sendMessage$1(message);
-  return t1.completer_13.get$future();
+  return t1.completer_14.get$future();
  },
  confirm$1: function(dialog) {
   return this.confirm$3(dialog,'Confirm','OK,Cancel')
@@ -2216,12 +2231,12 @@ $$._DeviceNotificationImpl = {"":
   var t1 = ({});
   var completer = $.CompleterImpl$0();
   $.setRuntimeTypeInfo(completer, ({T: 'Map'}));
-  t1.completer_14 = completer;
+  t1.completer_15 = completer;
   var message = this.createMessage$1('alert');
   $.indexSet(message.get$content(), 'alert', alertMessage);
-  message.set$callback(new $.Closure34(t1));
+  message.set$callback(new $.Closure37(t1));
   this.sendMessage$1(message);
-  return t1.completer_14.get$future();
+  return t1.completer_15.get$future();
  }
 };
 
@@ -2276,7 +2291,7 @@ $$._SQLBatchResultImpl = {"":
   var t1 = $.List((void 0));
   $.setRuntimeTypeInfo(t1, ({E: 'SQLResult'}));
   this.results = t1;
-  $.forEach(message.get$content(), new $.Closure22(this));
+  $.forEach(message.get$content(), new $.Closure31(this));
  }
 };
 
@@ -2670,7 +2685,7 @@ $$.JsonStringifier = {"":
                 this._checkCycle$1(object);
                 $.add$1(this._sb, '{');
                 t1.first_1 = true;
-                object.forEach$1(new $.Closure17(this, t1));
+                object.forEach$1(new $.Closure22(this, t1));
                 $.add$1(this._sb, '}');
                 $.removeLast(this._seen);
                 return;
@@ -2757,7 +2772,7 @@ $$.JsonStringifier = {"":
                                         this._checkCycle$1(object);
                                         $.add$1(this._sb, '{');
                                         t1.first_1 = true;
-                                        object.forEach$1(new $.Closure17(this, t1));
+                                        object.forEach$1(new $.Closure22(this, t1));
                                         $.add$1(this._sb, '}');
                                         $.removeLast(this._seen);
                                         return;
@@ -2815,13 +2830,13 @@ $$.LoggerImpl = {"":
     this._append$2('INFO', message);
   }
  },
- get$info: function() { return new $.Closure40(this, 'info$1'); },
+ get$info: function() { return new $.Closure43(this, 'info$1'); },
  error$1: function(message) {
   if (this.errorEnabled === true) {
     this._append$2('ERROR', message);
   }
  },
- get$error: function() { return new $.Closure40(this, 'error$1'); },
+ get$error: function() { return new $.Closure43(this, 'error$1'); },
  debug$1: function(message) {
   if (this.debugEnabled === true) {
     this._append$2('DEBUG', message);
@@ -2839,90 +2854,115 @@ $$.LoggerImpl = {"":
 
 $$.Closure = {"":
  [],
- super: "Closure39",
+ super: "Closure42",
  $call$1: function(device) {
   var t1 = ({});
   t1.device_1 = device;
-  t1.device_1.get$info().then$1(new $.Closure14(t1));
-  t1.device_1.openDatabase$4('testdb', '1.0', 'TestDB', 10000).then$1(new $.Closure15());
+  t1.device_1.get$info().then$1(new $.Closure14());
+  $._addHtml(' \n      <article id=\'notification\' class=\'box\'>\n        <h2>Dart Notifications</h2>\n        <ul>\n           <li><button id=\'alert\'>Alert</button></li>\n           <li><button id=\'beep\'>Beep</button></li>\n           <li><button id=\'confirm\'>Confirm</button></li>\n           <li><button id=\'vibrate\'>Vibrate</button></li>\n        </ul>\n      </article>\n    ');
+  $.add$1($.document().query$1('#alert').get$on().get$click(), new $.Closure15(t1));
+  $.add$1($.document().query$1('#beep').get$on().get$click(), new $.Closure16(t1));
+  $.add$1($.document().query$1('#confirm').get$on().get$click(), new $.Closure17(t1));
+  $.add$1($.document().query$1('#vibrate').get$on().get$click(), new $.Closure18(t1));
+  $._addHtml(' \n      <article id=\'accelerometer\' class=\'box\'>\n        <h2>Dart Accelerometer</h2>\n        <ul>\n          <li><button id=\'current\'>Get Current Acceleration</button></br>\n            <ul>\n              <li>X: <span id="x">unknown</span></li>\n              <li>Y: <span id="y">unknown</span></li>\n              <li>Z: <span id="z">unknown</span></li>\n              <li>Time: <span id="time">unknown</span></li>\n            </ul>\n          </li>\n        </ul>\n      </article>\n    ');
+  $.add$1($.document().query$1('#current').get$on().get$click(), new $.Closure19(t1));
+  t1.device_1.openDatabase$4('testdb', '1.0', 'TestDB', 10000).then$1(new $.Closure20());
  }
 };
 
 $$.Closure14 = {"":
- ["box_0"],
- super: "Closure39",
+ [],
+ super: "Closure42",
  $call$1: function(deviceInfo) {
-  $._addHtml(' \n        <article id=\'info\'>\n          <h2>Dart is running on:</h2>\n          <ul>\n            <li>Platform: ' + $.S(deviceInfo.get$platform()) + '</li>   \n            <li>Device version: ' + $.S(deviceInfo.get$deviceVersion()) + '</li>\n            <li>Cordova version: ' + $.S(deviceInfo.get$cordovaVersion()) + '</li>\n            <li>UUID: ' + $.S(deviceInfo.get$uuid()) + '</li>   \n            <li>Name: ' + $.S(deviceInfo.get$name()) + '</li>\n            <li>Color depth: ' + $.S(deviceInfo.get$screen().get$colorDepth()) + '</li>   \n            <li>Height: ' + $.S(deviceInfo.get$screen().get$height()) + '</li>\n            <li>Width: ' + $.S(deviceInfo.get$screen().get$width()) + '</li>\n          </ul>\n        </article>\n      ');
-  $._addHtml(' \n        <article id=\'notification\'>\n          <h2>Dart Notifications</h2>\n          <ul>\n             <li><button id=\'alert\'>Alert</button></li>\n             <li><button id=\'beep\'>Beep</button></li>\n             <li><button id=\'confirm\'>Confirm</button></li>\n             <li><button id=\'vibrate\'>Vibrate</button></li>\n          </ul>\n        </article>\n      ');
-  $.add$1($.document().query$1('#alert').get$on().get$click(), new $.Closure28(this.box_0));
-  $.add$1($.document().query$1('#beep').get$on().get$click(), new $.Closure29(this.box_0));
-  $.add$1($.document().query$1('#confirm').get$on().get$click(), new $.Closure30(this.box_0));
-  $.add$1($.document().query$1('#vibrate').get$on().get$click(), new $.Closure31(this.box_0));
+  $._addHtml(' \n        <article id=\'info\' class=\'box\'>\n          <h2>Dart is running on:</h2>\n          <ul>\n            <li>Platform: ' + $.S(deviceInfo.get$platform()) + '</li>   \n            <li>Device version: ' + $.S(deviceInfo.get$deviceVersion()) + '</li>\n            <li>Cordova version: ' + $.S(deviceInfo.get$cordovaVersion()) + '</li>\n            <li>UUID: ' + $.S(deviceInfo.get$uuid()) + '</li>   \n            <li>Name: ' + $.S(deviceInfo.get$name()) + '</li>\n            <li>Color depth: ' + $.S(deviceInfo.get$screen().get$colorDepth()) + '</li>   \n            <li>Height: ' + $.S(deviceInfo.get$screen().get$height()) + '</li>\n            <li>Width: ' + $.S(deviceInfo.get$screen().get$width()) + '</li>\n          </ul>\n        </article>\n      ');
  }
 };
 
-$$.Closure28 = {"":
+$$.Closure15 = {"":
  ["box_0"],
- super: "Closure39",
+ super: "Closure42",
  $call$1: function(e) {
   return this.box_0.device_1.get$notification().alert$1('Dart says hello');
  }
 };
 
-$$.Closure29 = {"":
+$$.Closure16 = {"":
  ["box_0"],
- super: "Closure39",
+ super: "Closure42",
  $call$1: function(e) {
   return this.box_0.device_1.get$notification().beep$1(2);
  }
 };
 
-$$.Closure30 = {"":
+$$.Closure17 = {"":
  ["box_0"],
- super: "Closure39",
+ super: "Closure42",
  $call$1: function(e) {
-  this.box_0.device_1.get$notification().confirm$1('Dart rocks').then$1(new $.Closure32(this.box_0));
+  this.box_0.device_1.get$notification().confirm$1('Dart rocks').then$1(new $.Closure35(this.box_0));
  }
 };
 
-$$.Closure32 = {"":
+$$.Closure35 = {"":
  ["box_0"],
- super: "Closure39",
+ super: "Closure42",
  $call$1: function(btn) {
   return this.box_0.device_1.get$notification().alert$1('clicked ' + $.S(btn));
  }
 };
 
-$$.Closure31 = {"":
+$$.Closure18 = {"":
  ["box_0"],
- super: "Closure39",
+ super: "Closure42",
  $call$1: function(e) {
   return this.box_0.device_1.get$notification().vibrate$1(2000);
  }
 };
 
-$$.Closure15 = {"":
+$$.Closure19 = {"":
+ ["box_0"],
+ super: "Closure42",
+ $call$1: function(e) {
+  this.box_0.device_1.get$accelerometer().get$currentAcceleration().then$1(new $.Closure33());
+ }
+};
+
+$$.Closure33 = {"":
  [],
- super: "Closure39",
+ super: "Closure42",
+ $call$1: function(accelData) {
+  var t1 = $.index(accelData, 'x');
+  $.document().query$1('#x').set$innerHTML(t1);
+  t1 = $.index(accelData, 'y');
+  $.document().query$1('#y').set$innerHTML(t1);
+  t1 = $.index(accelData, 'z');
+  $.document().query$1('#z').set$innerHTML(t1);
+  t1 = $.index(accelData, 'timestamp');
+  $.document().query$1('#time').set$innerHTML(t1);
+ }
+};
+
+$$.Closure20 = {"":
+ [],
+ super: "Closure42",
  $call$1: function(db) {
   var batchCallback = db.batchSql$1('DROP TABLE IF EXISTS USERS').batchSql$1('CREATE TABLE IF NOT EXISTS USERS (id unique, username unique)').batchSql$1('INSERT INTO USERS (id, username) VALUES (1, \'Bob\')').batchSql$1('INSERT INTO USERS (id, username) VALUES (2, \'Seth\')').batchSql$1('SELECT * FROM USERS').executeBatch$0();
-  batchCallback.then$1(new $.Closure19());
-  batchCallback.handleException$1(new $.Closure20());
+  batchCallback.then$1(new $.Closure28());
+  batchCallback.handleException$1(new $.Closure29());
  }
 };
 
-$$.Closure19 = {"":
+$$.Closure28 = {"":
  [],
- super: "Closure39",
+ super: "Closure42",
  $call$1: function(result) {
   $._addHtml('<h2>Dart talked to the Device Database!</h2>');
-  $.forEach($.index(result, 4), new $.Closure23());
+  $.forEach($.index(result, 4), new $.Closure32());
  }
 };
 
-$$.Closure23 = {"":
+$$.Closure32 = {"":
  [],
- super: "Closure39",
+ super: "Closure42",
  $call$1: function(data) {
   var id = $.index(data, 'id');
   var username = $.index(data, 'username');
@@ -2930,9 +2970,9 @@ $$.Closure23 = {"":
  }
 };
 
-$$.Closure20 = {"":
+$$.Closure29 = {"":
  [],
- super: "Closure39",
+ super: "Closure42",
  $call$1: function(e) {
   return $.print('error is ' + $.S(e));
  }
@@ -2940,7 +2980,7 @@ $$.Closure20 = {"":
 
 $$.Closure2 = {"":
  [],
- super: "Closure39",
+ super: "Closure42",
  $call$1: function(n) {
   return $.LoggerImpl$6(n, true, true, true, true, (void 0));
  }
@@ -2948,7 +2988,7 @@ $$.Closure2 = {"":
 
 $$.Closure3 = {"":
  ["box_0"],
- super: "Closure39",
+ super: "Closure42",
  $call$2: function(k, v) {
   if (this.box_0.first_3 !== true) {
     $.add$1(this.box_0.result_1, ', ');
@@ -2962,7 +3002,7 @@ $$.Closure3 = {"":
 
 $$.Closure4 = {"":
  ["box_0"],
- super: "Closure39",
+ super: "Closure42",
  $call$1: function(element) {
   var counter = $.add(this.box_0.counter_1, 1);
   this.box_0.counter_1 = counter;
@@ -2971,7 +3011,7 @@ $$.Closure4 = {"":
 
 $$.Closure5 = {"":
  ["box_0"],
- super: "Closure39",
+ super: "Closure42",
  $call$1: function(entry) {
   this.box_0.f_1.$call$2(entry.get$key(), entry.get$value());
  }
@@ -2979,7 +3019,7 @@ $$.Closure5 = {"":
 
 $$.Closure6 = {"":
  ["box_0"],
- super: "Closure39",
+ super: "Closure42",
  $call$0: function() {
   return this.box_0.closure_1.$call$0();
  }
@@ -2987,7 +3027,7 @@ $$.Closure6 = {"":
 
 $$.Closure7 = {"":
  ["box_0"],
- super: "Closure39",
+ super: "Closure42",
  $call$0: function() {
   return this.box_0.closure_1.$call$1(this.box_0.arg1_2);
  }
@@ -2995,7 +3035,7 @@ $$.Closure7 = {"":
 
 $$.Closure8 = {"":
  ["box_0"],
- super: "Closure39",
+ super: "Closure42",
  $call$0: function() {
   return this.box_0.closure_1.$call$2(this.box_0.arg1_2, this.box_0.arg2_3);
  }
@@ -3003,7 +3043,7 @@ $$.Closure8 = {"":
 
 $$.Closure9 = {"":
  ["box_0"],
- super: "Closure39",
+ super: "Closure42",
  $call$2: function(k, v) {
   var ctx = $.add(this.box_0.ctx_1, $.S(v) + ':');
   this.box_0.ctx_1 = ctx;
@@ -3013,7 +3053,7 @@ $$.Closure9 = {"":
 
 $$.Closure10 = {"":
  ["box_0"],
- super: "Closure39",
+ super: "Closure42",
  $call$1: function(appender) {
   return appender.doAppend$1(this.box_0.logMessage_2);
  }
@@ -3021,7 +3061,7 @@ $$.Closure10 = {"":
 
 $$.Closure11 = {"":
  [],
- super: "Closure39",
+ super: "Closure42",
  $call$1: function(n) {
   var absN = $.abs(n);
   var sign = $.ltB(n, 0) ? '-' : '';
@@ -3043,7 +3083,7 @@ $$.Closure11 = {"":
 
 $$.Closure12 = {"":
  [],
- super: "Closure39",
+ super: "Closure42",
  $call$1: function(n) {
   if ($.geB(n, 100)) {
     return $.S(n);
@@ -3057,7 +3097,7 @@ $$.Closure12 = {"":
 
 $$.Closure13 = {"":
  [],
- super: "Closure39",
+ super: "Closure42",
  $call$1: function(n) {
   if ($.geB(n, 10)) {
     return $.S(n);
@@ -3066,9 +3106,9 @@ $$.Closure13 = {"":
  }
 };
 
-$$.Closure16 = {"":
+$$.Closure21 = {"":
  ["box_0"],
- super: "Closure39",
+ super: "Closure42",
  $call$1: function(msg) {
   if (msg.get$hasErrors() === true) {
     this.box_0.completer_2.completeException$1('failed to open database ' + $.S(this.box_0.name_1));
@@ -3079,9 +3119,9 @@ $$.Closure16 = {"":
  }
 };
 
-$$.Closure17 = {"":
+$$.Closure22 = {"":
  ["this_2", "box_0"],
- super: "Closure39",
+ super: "Closure42",
  $call$2: function(key, value) {
   if (this.box_0.first_1 !== true) {
     $.add$1(this.this_2.get$_sb(), ',"');
@@ -3095,18 +3135,52 @@ $$.Closure17 = {"":
  }
 };
 
-$$.Closure18 = {"":
+$$.Closure23 = {"":
+ [],
+ super: "Closure42",
+ $call$1: function(n) {
+  return typeof n === 'object' && n.is$Element();
+ }
+};
+
+$$.Closure24 = {"":
+ ["box_0", "output_2"],
+ super: "Closure42",
+ $call$1: function(element) {
+  if (this.box_0.f_12.$call$1(element) === true) {
+    $.add$1(this.output_2, element);
+  }
+ }
+};
+
+$$.Closure25 = {"":
+ [],
+ super: "Closure42",
+ $call$1: function(el) {
+  return el.remove$0();
+ }
+};
+
+$$.Closure26 = {"":
+ ["this_2", "box_0"],
+ super: "Closure42",
+ $call$1: function(key) {
+  return this.box_0.f_13.$call$2(key, $.index(this.this_2, key));
+ }
+};
+
+$$.Closure27 = {"":
  ["box_0"],
- super: "Closure39",
+ super: "Closure42",
  $call$1: function(msg) {
   var info = $._DeviceInfoImpl(msg.get$content());
   this.box_0.completer_1.complete$1(info);
  }
 };
 
-$$.Closure21 = {"":
+$$.Closure30 = {"":
  ["box_0"],
- super: "Closure39",
+ super: "Closure42",
  $call$1: function(msg) {
   if (msg.get$hasErrors() === true) {
     this.box_0.completer_12.completeException$1(msg.get$error());
@@ -3117,84 +3191,58 @@ $$.Closure21 = {"":
  }
 };
 
-$$.Closure22 = {"":
+$$.Closure31 = {"":
  ["this_0"],
- super: "Closure39",
+ super: "Closure42",
  $call$1: function(data) {
   $.add$1(this.this_0.get$results(), $._SQLResultImpl$2($.index(data, 'query'), $.index(data, 'result')));
  }
 };
 
-$$.Closure24 = {"":
- [],
- super: "Closure39",
- $call$1: function(n) {
-  return typeof n === 'object' && n.is$Element();
- }
-};
-
-$$.Closure25 = {"":
- ["box_0", "output_2"],
- super: "Closure39",
- $call$1: function(element) {
-  if (this.box_0.f_12.$call$1(element) === true) {
-    $.add$1(this.output_2, element);
-  }
- }
-};
-
-$$.Closure26 = {"":
- [],
- super: "Closure39",
- $call$1: function(el) {
-  return el.remove$0();
- }
-};
-
-$$.Closure27 = {"":
- ["this_2", "box_0"],
- super: "Closure39",
- $call$1: function(key) {
-  return this.box_0.f_13.$call$2(key, $.index(this.this_2, key));
- }
-};
-
-$$.Closure33 = {"":
- ["box_0"],
- super: "Closure39",
- $call$1: function(msg) {
-  var btnIndex = msg.get$content();
-  this.box_0.completer_13.complete$1(btnIndex);
- }
-};
-
 $$.Closure34 = {"":
  ["box_0"],
- super: "Closure39",
+ super: "Closure42",
  $call$1: function(msg) {
-  this.box_0.completer_14.complete$1(msg.get$content());
- }
-};
-
-$$.Closure35 = {"":
- ["this_0"],
- super: "Closure39",
- $call$1: function(value) {
-  this.this_0.add$1(value);
+  this.box_0.completer_13.complete$1(msg.get$content());
  }
 };
 
 $$.Closure36 = {"":
  ["box_0"],
- super: "Closure39",
- $call$2: function(key, value) {
-  this.box_0.f_14.$call$1(key);
+ super: "Closure42",
+ $call$1: function(msg) {
+  var btnIndex = msg.get$content();
+  this.box_0.completer_14.complete$1(btnIndex);
  }
 };
 
 $$.Closure37 = {"":
  ["box_0"],
- super: "Closure39",
+ super: "Closure42",
+ $call$1: function(msg) {
+  this.box_0.completer_15.complete$1(msg.get$content());
+ }
+};
+
+$$.Closure38 = {"":
+ ["this_0"],
+ super: "Closure42",
+ $call$1: function(value) {
+  this.this_0.add$1(value);
+ }
+};
+
+$$.Closure39 = {"":
+ ["box_0"],
+ super: "Closure42",
+ $call$2: function(key, value) {
+  this.box_0.f_14.$call$1(key);
+ }
+};
+
+$$.Closure40 = {"":
+ ["box_0"],
+ super: "Closure42",
  $call$2: function(key, value) {
   if (this.box_0.f_15.$call$1(key) === true) {
     $.add$1(this.box_0.result_2, key);
@@ -3202,7 +3250,7 @@ $$.Closure37 = {"":
  }
 };
 
-$$.Closure39 = {"":
+$$.Closure42 = {"":
  [],
  super: "Object",
  toString$0: function() {
@@ -3210,10 +3258,10 @@ $$.Closure39 = {"":
  }
 };
 
-Isolate.$defineClass('Closure38', 'Closure39', ['self', 'target'], {
+Isolate.$defineClass('Closure41', 'Closure42', ['self', 'target'], {
 $call$0: function() { return this.self[this.target](); }
 });
-Isolate.$defineClass('Closure40', 'Closure39', ['self', 'target'], {
+Isolate.$defineClass('Closure43', 'Closure42', ['self', 'target'], {
 $call$1: function(p0) { return this.self[this.target](p0); }
 });
 $.mul$slow = function(a, b) {
@@ -3256,6 +3304,10 @@ $._containsRef = function(c, ref) {
     }
   }
   return false;
+};
+
+$._DeviceAccelerometerImpl$0 = function() {
+  return new $._DeviceAccelerometerImpl('accelerometer', $._DeviceMessageRouter());
 };
 
 $._NodeListWrapper$1 = function(list) {
@@ -3558,15 +3610,15 @@ $.invokeClosure = function(closure, isolate, numberOfArguments, arg1, arg2) {
   }
 };
 
-$.gt = function(a, b) {
-  return typeof a === 'number' && typeof b === 'number' ? (a > b) : $.gt$slow(a, b);
-};
-
 $.last = function(receiver) {
   if ($.isJsArray(receiver) !== true) {
     return receiver.last$0();
   }
   return $.index(receiver, $.sub($.get$length(receiver), 1));
+};
+
+$.gt = function(a, b) {
+  return typeof a === 'number' && typeof b === 'number' ? (a > b) : $.gt$slow(a, b);
 };
 
 $.String$fromCharCodes = function(charCodes) {
@@ -3883,16 +3935,16 @@ $.stringContainsUnchecked = function(receiver, other, startIndex) {
   }
 };
 
-$.add = function(a, b) {
-  return typeof a === 'number' && typeof b === 'number' ? (a + b) : $.add$slow(a, b);
-};
-
 $.ObjectNotClosureException$0 = function() {
   return new $.ObjectNotClosureException();
 };
 
 $.window = function() {
   return window;;
+};
+
+$.add = function(a, b) {
+  return typeof a === 'number' && typeof b === 'number' ? (a + b) : $.add$slow(a, b);
 };
 
 $._DartGapImpl = function() {
@@ -3911,6 +3963,13 @@ $.abs = function(receiver) {
 
 $.regExpAttachGlobalNative = function(regExp) {
   regExp._re = $.regExpMakeNative(regExp, true);
+};
+
+$.iterator = function(receiver) {
+  if ($.isJsArray(receiver) === true) {
+    return $.ListIterator$1(receiver);
+  }
+  return receiver.iterator$0();
 };
 
 $.leB = function(a, b) {
@@ -3941,13 +4000,6 @@ $.regExpMakeNative = function(regExp, global) {
   }
 };
 
-$.iterator = function(receiver) {
-  if ($.isJsArray(receiver) === true) {
-    return $.ListIterator$1(receiver);
-  }
-  return receiver.iterator$0();
-};
-
 $.BadNumberFormatException$1 = function(_s) {
   return new $.BadNumberFormatException(_s);
 };
@@ -3970,6 +4022,13 @@ $.mapToString = function(m) {
   var result = $.StringBufferImpl$1('');
   $._emitMap(m, result, $.List((void 0)));
   return result.toString$0();
+};
+
+$.isEmpty = function(receiver) {
+  if (typeof receiver === 'string' || $.isJsArray(receiver) === true) {
+    return receiver.length === 0;
+  }
+  return receiver.isEmpty$0();
 };
 
 $.lazyAsJsDate = function(receiver) {
@@ -4019,13 +4078,6 @@ $._emitMap = function(m, result, visiting) {
   $.removeLast(t1.visiting_2);
 };
 
-$.isEmpty = function(receiver) {
-  if (typeof receiver === 'string' || $.isJsArray(receiver) === true) {
-    return receiver.length === 0;
-  }
-  return receiver.isEmpty$0();
-};
-
 $._IDBDatabaseEventsImpl$1 = function(_ptr) {
   return new $._IDBDatabaseEventsImpl(_ptr);
 };
@@ -4040,10 +4092,6 @@ $._Guid$fromValue$1 = function(value) {
 
 $.ge = function(a, b) {
   return typeof a === 'number' && typeof b === 'number' ? (a >= b) : $.ge$slow(a, b);
-};
-
-$._DeviceScreenImpl = function(data) {
-  return $._DeviceScreenImpl$_internal$3($.index(data, 'colorDepth'), $.index(data, 'height'), $.index(data, 'width'));
 };
 
 $._TextTrackCueEventsImpl$1 = function(_ptr) {
@@ -4224,6 +4272,10 @@ $.FutureImpl$0 = function() {
   return new $.FutureImpl([], t2, t1, false, (void 0), (void 0), false);
 };
 
+$._DeviceScreenImpl = function(data) {
+  return $._DeviceScreenImpl$_internal$3($.index(data, 'colorDepth'), $.index(data, 'height'), $.index(data, 'width'));
+};
+
 $.iae = function(argument) {
   throw $.captureStackTrace($.IllegalArgumentException$1(argument));
 };
@@ -4283,16 +4335,16 @@ $._ChildrenElementList$_wrap$1 = function(element) {
   return new $._ChildrenElementList(element.get$$$dom_children(), element);
 };
 
+$._AllMatchesIterable$2 = function(_re, _str) {
+  return new $._AllMatchesIterable(_str, _re);
+};
+
 $.addLast = function(receiver, value) {
   if ($.isJsArray(receiver) !== true) {
     return receiver.addLast$1(value);
   }
   $.checkGrowable(receiver, 'addLast');
   receiver.push(value);
-};
-
-$._AllMatchesIterable$2 = function(_re, _str) {
-  return new $._AllMatchesIterable(_str, _re);
 };
 
 $.dynamicSetMetadata = function(inputTable) {
@@ -4712,20 +4764,6 @@ $._BatteryManagerEventsImpl$1 = function(_ptr) {
   return new $._BatteryManagerEventsImpl(_ptr);
 };
 
-$.toInt = function(receiver) {
-  if (!(typeof receiver === 'number')) {
-    return receiver.toInt$0();
-  }
-  if ($.isNaN(receiver) === true) {
-    throw $.captureStackTrace($.BadNumberFormatException$1('NaN'));
-  }
-  if ($.isInfinite(receiver) === true) {
-    throw $.captureStackTrace($.BadNumberFormatException$1('Infinity'));
-  }
-  var truncated = $.truncate(receiver);
-  return (truncated == -0.0) ? 0 : truncated;
-};
-
 $.toString = function(value) {
   if (typeof value == "object") {
     if ($.isJsArray(value) === true) {
@@ -4744,6 +4782,20 @@ $.toString = function(value) {
     return 'Closure';
   }
   return String(value);
+};
+
+$.toInt = function(receiver) {
+  if (!(typeof receiver === 'number')) {
+    return receiver.toInt$0();
+  }
+  if ($.isNaN(receiver) === true) {
+    throw $.captureStackTrace($.BadNumberFormatException$1('NaN'));
+  }
+  if ($.isInfinite(receiver) === true) {
+    throw $.captureStackTrace($.BadNumberFormatException$1('Infinity'));
+  }
+  var truncated = $.truncate(receiver);
+  return (truncated == -0.0) ? 0 : truncated;
 };
 
 $._WebSocketEventsImpl$1 = function(_ptr) {
@@ -4856,27 +4908,6 @@ $._hexDigit = function(x) {
   return $.ltB(x, 10) ? $.add(48, x) : $.add(87, x);
 };
 
-$.indexOf = function(a, element, startIndex, endIndex) {
-  if (typeof a !== 'string' && (typeof a !== 'object'||a.constructor !== Array)) return $.indexOf$bailout(a, element, startIndex, endIndex, 1, a, 0, 0);
-  if (typeof endIndex !== 'number') return $.indexOf$bailout(a, element, startIndex, endIndex, 2, a, endIndex, 0);
-  if ($.geB(startIndex, a.length)) {
-    return -1;
-  }
-  if ($.ltB(startIndex, 0)) {
-    var startIndex = 0;
-  }
-  if (typeof startIndex !== 'number') return $.indexOf$bailout(a, element, startIndex, endIndex, 3, a, endIndex, startIndex);
-  for (var i = startIndex; i < endIndex; ++i) {
-    if (i !== (i | 0)) throw $.iae(i);
-    var t1 = a.length;
-    if (i < 0 || i >= t1) throw $.ioore(i);
-    if ($.eqB(a[i], element)) {
-      return i;
-    }
-  }
-  return -1;
-};
-
 $.set$length = function(receiver, newLength) {
   if ($.isJsArray(receiver) === true) {
     $.checkNull(newLength);
@@ -4907,6 +4938,27 @@ $.gt$slow = function(a, b) {
 
 $.dartgap = function() {
   return $._DartGapImpl();
+};
+
+$.indexOf = function(a, element, startIndex, endIndex) {
+  if (typeof a !== 'string' && (typeof a !== 'object'||a.constructor !== Array)) return $.indexOf$bailout(a, element, startIndex, endIndex, 1, a, 0, 0);
+  if (typeof endIndex !== 'number') return $.indexOf$bailout(a, element, startIndex, endIndex, 2, a, endIndex, 0);
+  if ($.geB(startIndex, a.length)) {
+    return -1;
+  }
+  if ($.ltB(startIndex, 0)) {
+    var startIndex = 0;
+  }
+  if (typeof startIndex !== 'number') return $.indexOf$bailout(a, element, startIndex, endIndex, 3, a, endIndex, startIndex);
+  for (var i = startIndex; i < endIndex; ++i) {
+    if (i !== (i | 0)) throw $.iae(i);
+    var t1 = a.length;
+    if (i < 0 || i >= t1) throw $.ioore(i);
+    if ($.eqB(a[i], element)) {
+      return i;
+    }
+  }
+  return -1;
 };
 
 $.typeNameInFirefox = function(obj) {
@@ -5006,6 +5058,13 @@ $.toStringForNativeObject = function(obj) {
   return 'Instance of ' + $.S($.getTypeNameOf(obj));
 };
 
+$.trim = function(receiver) {
+  if (!(typeof receiver === 'string')) {
+    return receiver.trim$0();
+  }
+  return receiver.trim();
+};
+
 $.forEach = function(receiver, f) {
   if ($.isJsArray(receiver) !== true) {
     return receiver.forEach$1(f);
@@ -5014,11 +5073,12 @@ $.forEach = function(receiver, f) {
   }
 };
 
-$.trim = function(receiver) {
-  if (!(typeof receiver === 'string')) {
-    return receiver.trim$0();
-  }
-  return receiver.trim();
+$._addHtml = function(html) {
+  return $._addHtmlTo(html, $.document().get$body());
+};
+
+$._MessagePortEventsImpl$1 = function(_ptr) {
+  return new $._MessagePortEventsImpl(_ptr);
 };
 
 $.forEach2 = function(iterable, f) {
@@ -5027,8 +5087,24 @@ $.forEach2 = function(iterable, f) {
   }
 };
 
-$._addHtml = function(html) {
-  return $._addHtmlTo(html, $.document().get$body());
+$.getFunctionForTypeNameOf = function() {
+  if (!((typeof(navigator)) === 'object')) {
+    return $.typeNameInChrome;
+  }
+  var userAgent = (navigator.userAgent);
+  if ($.contains$1(userAgent, $.CTC13) === true) {
+    return $.typeNameInChrome;
+  } else {
+    if ($.contains$1(userAgent, 'Firefox') === true) {
+      return $.typeNameInFirefox;
+    } else {
+      if ($.contains$1(userAgent, 'MSIE') === true) {
+        return $.typeNameInIE;
+      } else {
+        return $.constructorNameFallback;
+      }
+    }
+  }
 };
 
 $.dynamicBind = function(obj, name$, methods, arguments$) {
@@ -5059,30 +5135,6 @@ $.dynamicBind = function(obj, name$, methods, arguments$) {
   return nullCheckMethod.apply(obj, arguments$);
 };
 
-$._MessagePortEventsImpl$1 = function(_ptr) {
-  return new $._MessagePortEventsImpl(_ptr);
-};
-
-$.getFunctionForTypeNameOf = function() {
-  if (!((typeof(navigator)) === 'object')) {
-    return $.typeNameInChrome;
-  }
-  var userAgent = (navigator.userAgent);
-  if ($.contains$1(userAgent, $.CTC13) === true) {
-    return $.typeNameInChrome;
-  } else {
-    if ($.contains$1(userAgent, 'Firefox') === true) {
-      return $.typeNameInFirefox;
-    } else {
-      if ($.contains$1(userAgent, 'MSIE') === true) {
-        return $.typeNameInIE;
-      } else {
-        return $.constructorNameFallback;
-      }
-    }
-  }
-};
-
 $.index = function(a, index) {
   if (typeof a == "string" || a.constructor === Array) {
     var key = (index >>> 0);
@@ -5095,12 +5147,6 @@ $.index = function(a, index) {
 
 $._ElementEventsImpl$1 = function(_ptr) {
   return new $._ElementEventsImpl(_ptr);
-};
-
-$.forEach3 = function(iterable, f) {
-  for (var t1 = $.iterator(iterable); t1.hasNext$0() === true; ) {
-    f.$call$1(t1.next$0());
-  }
 };
 
 $.toLowerCase = function(receiver) {
@@ -5140,6 +5186,12 @@ $.parseDouble2 = function(str) {
 
 $.List = function(length$) {
   return $.newList(length$);
+};
+
+$.forEach3 = function(iterable, f) {
+  for (var t1 = $.iterator(iterable); t1.hasNext$0() === true; ) {
+    f.$call$1(t1.next$0());
+  }
 };
 
 $._XMLHttpRequestUploadEventsImpl$1 = function(_ptr) {
@@ -5235,7 +5287,7 @@ $.setRuntimeTypeInfo = function(target, typeInfo) {
 };
 
 $._DeviceImpl$0 = function() {
-  return new $._DeviceImpl($._DeviceNotificationImpl$0(), 'device', $._DeviceMessageRouter());
+  return new $._DeviceImpl($._DeviceAccelerometerImpl$0(), $._DeviceNotificationImpl$0(), 'device', $._DeviceMessageRouter());
 };
 
 $.document = function() {
@@ -5764,14 +5816,14 @@ _ConsoleImpl = (typeof console == 'undefined' ? {} : console);
 _ConsoleImpl.info$1 = function(arg) {
   return this.info(arg);
  };
-_ConsoleImpl.get$info = function() { return new $.Closure40(this, 'info$1'); };
+_ConsoleImpl.get$info = function() { return new $.Closure43(this, 'info$1'); };
 _ConsoleImpl.group$1 = function(arg) {
   return this.group(arg);
  };
 _ConsoleImpl.error$1 = function(arg) {
   return this.error(arg);
  };
-_ConsoleImpl.get$error = function() { return new $.Closure40(this, 'error$1'); };
+_ConsoleImpl.get$error = function() { return new $.Closure43(this, 'error$1'); };
 _ConsoleImpl.debug$1 = function(arg) {
   return this.debug(arg);
  };
@@ -5971,7 +6023,7 @@ $.$defineNativeClass('DocumentFragment', [], {
  },
  click$0: function() {
  },
- get$click: function() { return new $.Closure38(this, 'click$0'); },
+ get$click: function() { return new $.Closure41(this, 'click$0'); },
  get$parent: function() {
   return;
  },
@@ -6020,7 +6072,7 @@ $.$defineNativeClass('Element', ["innerHTML!"], {
  click$0: function() {
   return this.click();
  },
- get$click: function() { return new $.Closure38(this, 'click$0'); },
+ get$click: function() { return new $.Closure41(this, 'click$0'); },
  get$$$dom_children: function() {
   return this.children;;
  },
