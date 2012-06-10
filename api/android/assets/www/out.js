@@ -426,16 +426,16 @@ $$.HashSetImplementation = {"":
   var result = $.HashSetImplementation$0();
   $.setRuntimeTypeInfo(result, ({E: 'E'}));
   t1.result_2 = result;
-  $.forEach(this._backingMap, new $.Closure31(t1));
+  $.forEach(this._backingMap, new $.Closure37(t1));
   return t1.result_2;
  },
  forEach$1: function(f) {
   var t1 = ({});
   t1.f_14 = f;
-  $.forEach(this._backingMap, new $.Closure30(t1));
+  $.forEach(this._backingMap, new $.Closure36(t1));
  },
  addAll$1: function(collection) {
-  $.forEach(collection, new $.Closure29(this));
+  $.forEach(collection, new $.Closure35(this));
  },
  remove$1: function(value) {
   if (this._backingMap.containsKey$1(value) !== true) {
@@ -696,7 +696,7 @@ $$.DoubleLinkedQueue = {"":
  first$0: function() {
   return this._sentinel.get$_next().get$element();
  },
- get$first: function() { return new $.Closure32(this, 'first$0'); },
+ get$first: function() { return new $.Closure38(this, 'first$0'); },
  removeLast$0: function() {
   return this._sentinel.get$_previous().remove$0();
  },
@@ -953,7 +953,7 @@ $$.ListIterator = {"":
  }
 };
 
-$$.Closure33 = {"":
+$$.Closure39 = {"":
  [],
  super: "Object",
  toString$0: function() {
@@ -985,7 +985,7 @@ $$.ConstantMap = {"":
  forEach$1: function(f) {
   var t1 = ({});
   t1.f_13 = f;
-  $.forEach(this._lib2_keys, new $.Closure28(this, t1));
+  $.forEach(this._lib2_keys, new $.Closure27(this, t1));
  },
  operator$index$1: function(key) {
   if (this.containsKey$1(key) !== true) {
@@ -1294,6 +1294,9 @@ $$._DocumentEventsImpl = {"":
  super: "_ElementEventsImpl",
  get$error: function() {
   return this._get$1('error');
+ },
+ get$click: function() {
+  return this._get$1('click');
  }
 };
 
@@ -1335,7 +1338,7 @@ $$.FilteredElementList = {"":
   $.clear(this._childNodes);
  },
  removeRange$2: function(start, rangeLength) {
-  $.forEach($.getRange(this.get$_filtered(), start, rangeLength), new $.Closure27());
+  $.forEach($.getRange(this.get$_filtered(), start, rangeLength), new $.Closure26());
  },
  addLast$1: function(value) {
   this.add$1(value);
@@ -1346,7 +1349,7 @@ $$.FilteredElementList = {"":
  add$1: function(value) {
   $.add$1(this._childNodes, value);
  },
- get$add: function() { return new $.Closure34(this, 'add$1'); },
+ get$add: function() { return new $.Closure40(this, 'add$1'); },
  set$length: function(newLength) {
   var len = $.get$length(this);
   if ($.geB(newLength, len)) {
@@ -1375,7 +1378,7 @@ $$.FilteredElementList = {"":
  },
  first$0: function() { return this.get$first().$call$0(); },
  get$_filtered: function() {
-  return $.List$from($.filter(this._childNodes, new $.Closure25()));
+  return $.List$from($.filter(this._childNodes, new $.Closure24()));
  },
  is$List2: function() { return true; },
  is$Collection: function() { return true; }
@@ -1437,7 +1440,7 @@ $$._ChildrenElementList = {"":
   var t1 = ({});
   t1.f_12 = f;
   var output = [];
-  this.forEach$1(new $.Closure26(t1, output));
+  this.forEach$1(new $.Closure25(t1, output));
   return $._FrozenElementList$_wrap$1(output);
  },
  forEach$1: function(f) {
@@ -1595,6 +1598,9 @@ $$._ElementEventsImpl = {"":
  super: "_EventsImpl",
  get$error: function() {
   return this._get$1('error');
+ },
+ get$click: function() {
+  return this._get$1('click');
  }
 };
 
@@ -1872,6 +1878,9 @@ $$._NotificationEventsImpl = {"":
  super: "_EventsImpl",
  get$error: function() {
   return this._get$1('error');
+ },
+ get$click: function() {
+  return this._get$1('click');
  }
 };
 
@@ -1885,6 +1894,9 @@ $$._SVGElementInstanceEventsImpl = {"":
  super: "_EventsImpl",
  get$error: function() {
   return this._get$1('error');
+ },
+ get$click: function() {
+  return this._get$1('click');
  }
 };
 
@@ -1935,6 +1947,9 @@ $$._WindowEventsImpl = {"":
  },
  get$error: function() {
   return this._get$1('error');
+ },
+ get$click: function() {
+  return this._get$1('click');
  }
 };
 
@@ -2046,14 +2061,14 @@ $$._DeviceDatabaseImpl = {"":
   this._checkConnection$0();
   var completer = $.CompleterImpl$0();
   $.setRuntimeTypeInfo(completer, ({T: 'SQLBatchResult'}));
-  t1.completer_13 = completer;
+  t1.completer_12 = completer;
   var message = this._connectionMessage$1('executeBatch');
   $.indexSet(message.get$content(), 'queries', queries);
-  message.set$callback(new $.Closure22(t1));
+  message.set$callback(new $.Closure21(t1));
   this.sendMessage$1(message);
-  return t1.completer_13.get$future();
+  return t1.completer_12.get$future();
  },
- get$_batchExecutor: function() { return new $.Closure34(this, '_batchExecutor$1'); },
+ get$_batchExecutor: function() { return new $.Closure40(this, '_batchExecutor$1'); },
  batchSql$1: function(sql) {
   var batch = $._SQLBatchImpl$1(this.get$_batchExecutor());
   batch.batchSql$1(sql);
@@ -2077,7 +2092,7 @@ $$._DeviceImpl = {"":
   $.indexSet(message.get$content(), 'version', version);
   $.indexSet(message.get$content(), 'displayName', displayName);
   $.indexSet(message.get$content(), 'size', size);
-  message.set$callback(new $.Closure18(t1));
+  message.set$callback(new $.Closure16(t1));
   this.sendMessage$1(message);
   return t1.completer_2.get$future();
  },
@@ -2085,11 +2100,11 @@ $$._DeviceImpl = {"":
   var t1 = ({});
   var completer = $.CompleterImpl$0();
   $.setRuntimeTypeInfo(completer, ({T: 'DeviceInfo'}));
-  t1.completer_12 = completer;
+  t1.completer_1 = completer;
   var message = this.createMessage$1('info');
-  message.set$callback(new $.Closure19(t1));
+  message.set$callback(new $.Closure18(t1));
   this.sendMessage$1(message);
-  return t1.completer_12.get$future();
+  return t1.completer_1.get$future();
  }
 };
 
@@ -2162,7 +2177,7 @@ $$._DeviceMessageRouter2 = {"":
     }
   }
  },
- get$_messageRouter: function() { return new $.Closure34(this, '_messageRouter$1'); },
+ get$_messageRouter: function() { return new $.Closure40(this, '_messageRouter$1'); },
  _DeviceMessageRouter$_internal$0: function() {
   $.window().get$on().get$message().add$2(this.get$_messageRouter(), false);
  }
@@ -2171,16 +2186,42 @@ $$._DeviceMessageRouter2 = {"":
 $$._DeviceNotificationImpl = {"":
  ["area", "_router"],
  super: "_DeviceAware",
+ vibrate$1: function(duration) {
+  var message = this.createMessage$1('vibrate');
+  $.indexSet(message.get$content(), 'duration', duration);
+  this.sendMessage$1(message);
+ },
+ confirm$3: function(dialog, title, labels) {
+  var t1 = ({});
+  var completer = $.CompleterImpl$0();
+  $.setRuntimeTypeInfo(completer, ({T: 'Map'}));
+  t1.completer_13 = completer;
+  var message = this.createMessage$1('confirm');
+  $.indexSet(message.get$content(), 'dialog', dialog);
+  $.indexSet(message.get$content(), 'title', title);
+  $.indexSet(message.get$content(), 'labels', labels);
+  message.set$callback(new $.Closure33(t1));
+  this.sendMessage$1(message);
+  return t1.completer_13.get$future();
+ },
+ confirm$1: function(dialog) {
+  return this.confirm$3(dialog,'Confirm','OK,Cancel')
+},
+ beep$1: function(times) {
+  var message = this.createMessage$1('beep');
+  $.indexSet(message.get$content(), 'times', times);
+  this.sendMessage$1(message);
+ },
  alert$1: function(alertMessage) {
   var t1 = ({});
   var completer = $.CompleterImpl$0();
   $.setRuntimeTypeInfo(completer, ({T: 'Map'}));
-  t1.completer_1 = completer;
+  t1.completer_14 = completer;
   var message = this.createMessage$1('alert');
   $.indexSet(message.get$content(), 'alert', alertMessage);
-  message.set$callback(new $.Closure16(t1));
+  message.set$callback(new $.Closure34(t1));
   this.sendMessage$1(message);
-  return t1.completer_1.get$future();
+  return t1.completer_14.get$future();
  }
 };
 
@@ -2235,13 +2276,14 @@ $$._SQLBatchResultImpl = {"":
   var t1 = $.List((void 0));
   $.setRuntimeTypeInfo(t1, ({E: 'SQLResult'}));
   this.results = t1;
-  $.forEach(message.get$content(), new $.Closure23(this));
+  $.forEach(message.get$content(), new $.Closure22(this));
  }
 };
 
 $$._SQLResultImpl = {"":
  ["result", "query"],
  super: "Object",
+ query$1: function(arg0) { return this.query.$call$1(arg0); },
  toString$0: function() {
   return 'query: [' + $.S(this.query) + '] result [' + $.S($.toString(this.result)) + ']';
  },
@@ -2773,13 +2815,13 @@ $$.LoggerImpl = {"":
     this._append$2('INFO', message);
   }
  },
- get$info: function() { return new $.Closure34(this, 'info$1'); },
+ get$info: function() { return new $.Closure40(this, 'info$1'); },
  error$1: function(message) {
   if (this.errorEnabled === true) {
     this._append$2('ERROR', message);
   }
  },
- get$error: function() { return new $.Closure34(this, 'error$1'); },
+ get$error: function() { return new $.Closure40(this, 'error$1'); },
  debug$1: function(message) {
   if (this.debugEnabled === true) {
     this._append$2('DEBUG', message);
@@ -2797,44 +2839,90 @@ $$.LoggerImpl = {"":
 
 $$.Closure = {"":
  [],
- super: "Closure33",
+ super: "Closure39",
  $call$1: function(device) {
-  device.get$info().then$1(new $.Closure14());
-  device.openDatabase$4('testdb', '1.0', 'TestDB', 10000).then$1(new $.Closure15());
-  device.get$notification().alert$1('Dart says hello');
+  var t1 = ({});
+  t1.device_1 = device;
+  t1.device_1.get$info().then$1(new $.Closure14(t1));
+  t1.device_1.openDatabase$4('testdb', '1.0', 'TestDB', 10000).then$1(new $.Closure15());
  }
 };
 
 $$.Closure14 = {"":
- [],
- super: "Closure33",
+ ["box_0"],
+ super: "Closure39",
  $call$1: function(deviceInfo) {
   $._addHtml(' \n        <article id=\'info\'>\n          <h2>Dart is running on:</h2>\n          <ul>\n            <li>Platform: ' + $.S(deviceInfo.get$platform()) + '</li>   \n            <li>Device version: ' + $.S(deviceInfo.get$deviceVersion()) + '</li>\n            <li>Cordova version: ' + $.S(deviceInfo.get$cordovaVersion()) + '</li>\n            <li>UUID: ' + $.S(deviceInfo.get$uuid()) + '</li>   \n            <li>Name: ' + $.S(deviceInfo.get$name()) + '</li>\n            <li>Color depth: ' + $.S(deviceInfo.get$screen().get$colorDepth()) + '</li>   \n            <li>Height: ' + $.S(deviceInfo.get$screen().get$height()) + '</li>\n            <li>Width: ' + $.S(deviceInfo.get$screen().get$width()) + '</li>\n          </ul>\n        </article>\n      ');
+  $._addHtml(' \n        <article id=\'notification\'>\n          <h2>Dart Notifications</h2>\n          <ul>\n             <li><button id=\'alert\'>Alert</button></li>\n             <li><button id=\'beep\'>Beep</button></li>\n             <li><button id=\'confirm\'>Confirm</button></li>\n             <li><button id=\'vibrate\'>Vibrate</button></li>\n          </ul>\n        </article>\n      ');
+  $.add$1($.document().query$1('#alert').get$on().get$click(), new $.Closure28(this.box_0));
+  $.add$1($.document().query$1('#beep').get$on().get$click(), new $.Closure29(this.box_0));
+  $.add$1($.document().query$1('#confirm').get$on().get$click(), new $.Closure30(this.box_0));
+  $.add$1($.document().query$1('#vibrate').get$on().get$click(), new $.Closure31(this.box_0));
+ }
+};
+
+$$.Closure28 = {"":
+ ["box_0"],
+ super: "Closure39",
+ $call$1: function(e) {
+  return this.box_0.device_1.get$notification().alert$1('Dart says hello');
+ }
+};
+
+$$.Closure29 = {"":
+ ["box_0"],
+ super: "Closure39",
+ $call$1: function(e) {
+  return this.box_0.device_1.get$notification().beep$1(2);
+ }
+};
+
+$$.Closure30 = {"":
+ ["box_0"],
+ super: "Closure39",
+ $call$1: function(e) {
+  this.box_0.device_1.get$notification().confirm$1('Dart rocks').then$1(new $.Closure32(this.box_0));
+ }
+};
+
+$$.Closure32 = {"":
+ ["box_0"],
+ super: "Closure39",
+ $call$1: function(btn) {
+  return this.box_0.device_1.get$notification().alert$1('clicked ' + $.S(btn));
+ }
+};
+
+$$.Closure31 = {"":
+ ["box_0"],
+ super: "Closure39",
+ $call$1: function(e) {
+  return this.box_0.device_1.get$notification().vibrate$1(2000);
  }
 };
 
 $$.Closure15 = {"":
  [],
- super: "Closure33",
+ super: "Closure39",
  $call$1: function(db) {
   var batchCallback = db.batchSql$1('DROP TABLE IF EXISTS USERS').batchSql$1('CREATE TABLE IF NOT EXISTS USERS (id unique, username unique)').batchSql$1('INSERT INTO USERS (id, username) VALUES (1, \'Bob\')').batchSql$1('INSERT INTO USERS (id, username) VALUES (2, \'Seth\')').batchSql$1('SELECT * FROM USERS').executeBatch$0();
-  batchCallback.then$1(new $.Closure20());
-  batchCallback.handleException$1(new $.Closure21());
+  batchCallback.then$1(new $.Closure19());
+  batchCallback.handleException$1(new $.Closure20());
  }
 };
 
-$$.Closure20 = {"":
+$$.Closure19 = {"":
  [],
- super: "Closure33",
+ super: "Closure39",
  $call$1: function(result) {
   $._addHtml('<h2>Dart talked to the Device Database!</h2>');
-  $.forEach($.index(result, 4), new $.Closure24());
+  $.forEach($.index(result, 4), new $.Closure23());
  }
 };
 
-$$.Closure24 = {"":
+$$.Closure23 = {"":
  [],
- super: "Closure33",
+ super: "Closure39",
  $call$1: function(data) {
   var id = $.index(data, 'id');
   var username = $.index(data, 'username');
@@ -2842,9 +2930,9 @@ $$.Closure24 = {"":
  }
 };
 
-$$.Closure21 = {"":
+$$.Closure20 = {"":
  [],
- super: "Closure33",
+ super: "Closure39",
  $call$1: function(e) {
   return $.print('error is ' + $.S(e));
  }
@@ -2852,7 +2940,7 @@ $$.Closure21 = {"":
 
 $$.Closure2 = {"":
  [],
- super: "Closure33",
+ super: "Closure39",
  $call$1: function(n) {
   return $.LoggerImpl$6(n, true, true, true, true, (void 0));
  }
@@ -2860,7 +2948,7 @@ $$.Closure2 = {"":
 
 $$.Closure3 = {"":
  ["box_0"],
- super: "Closure33",
+ super: "Closure39",
  $call$2: function(k, v) {
   if (this.box_0.first_3 !== true) {
     $.add$1(this.box_0.result_1, ', ');
@@ -2874,7 +2962,7 @@ $$.Closure3 = {"":
 
 $$.Closure4 = {"":
  ["box_0"],
- super: "Closure33",
+ super: "Closure39",
  $call$1: function(element) {
   var counter = $.add(this.box_0.counter_1, 1);
   this.box_0.counter_1 = counter;
@@ -2883,7 +2971,7 @@ $$.Closure4 = {"":
 
 $$.Closure5 = {"":
  ["box_0"],
- super: "Closure33",
+ super: "Closure39",
  $call$1: function(entry) {
   this.box_0.f_1.$call$2(entry.get$key(), entry.get$value());
  }
@@ -2891,7 +2979,7 @@ $$.Closure5 = {"":
 
 $$.Closure6 = {"":
  ["box_0"],
- super: "Closure33",
+ super: "Closure39",
  $call$0: function() {
   return this.box_0.closure_1.$call$0();
  }
@@ -2899,7 +2987,7 @@ $$.Closure6 = {"":
 
 $$.Closure7 = {"":
  ["box_0"],
- super: "Closure33",
+ super: "Closure39",
  $call$0: function() {
   return this.box_0.closure_1.$call$1(this.box_0.arg1_2);
  }
@@ -2907,7 +2995,7 @@ $$.Closure7 = {"":
 
 $$.Closure8 = {"":
  ["box_0"],
- super: "Closure33",
+ super: "Closure39",
  $call$0: function() {
   return this.box_0.closure_1.$call$2(this.box_0.arg1_2, this.box_0.arg2_3);
  }
@@ -2915,7 +3003,7 @@ $$.Closure8 = {"":
 
 $$.Closure9 = {"":
  ["box_0"],
- super: "Closure33",
+ super: "Closure39",
  $call$2: function(k, v) {
   var ctx = $.add(this.box_0.ctx_1, $.S(v) + ':');
   this.box_0.ctx_1 = ctx;
@@ -2925,7 +3013,7 @@ $$.Closure9 = {"":
 
 $$.Closure10 = {"":
  ["box_0"],
- super: "Closure33",
+ super: "Closure39",
  $call$1: function(appender) {
   return appender.doAppend$1(this.box_0.logMessage_2);
  }
@@ -2933,7 +3021,7 @@ $$.Closure10 = {"":
 
 $$.Closure11 = {"":
  [],
- super: "Closure33",
+ super: "Closure39",
  $call$1: function(n) {
   var absN = $.abs(n);
   var sign = $.ltB(n, 0) ? '-' : '';
@@ -2955,7 +3043,7 @@ $$.Closure11 = {"":
 
 $$.Closure12 = {"":
  [],
- super: "Closure33",
+ super: "Closure39",
  $call$1: function(n) {
   if ($.geB(n, 100)) {
     return $.S(n);
@@ -2969,7 +3057,7 @@ $$.Closure12 = {"":
 
 $$.Closure13 = {"":
  [],
- super: "Closure33",
+ super: "Closure39",
  $call$1: function(n) {
   if ($.geB(n, 10)) {
     return $.S(n);
@@ -2980,15 +3068,20 @@ $$.Closure13 = {"":
 
 $$.Closure16 = {"":
  ["box_0"],
- super: "Closure33",
+ super: "Closure39",
  $call$1: function(msg) {
-  this.box_0.completer_1.complete$1(msg.get$content());
+  if (msg.get$hasErrors() === true) {
+    this.box_0.completer_2.completeException$1('failed to open database ' + $.S(this.box_0.name_1));
+  } else {
+    var db = $._DeviceDatabaseImpl$1(this.box_0.connectionId_3);
+    this.box_0.completer_2.complete$1(db);
+  }
  }
 };
 
 $$.Closure17 = {"":
  ["this_2", "box_0"],
- super: "Closure33",
+ super: "Closure39",
  $call$2: function(key, value) {
   if (this.box_0.first_1 !== true) {
     $.add$1(this.this_2.get$_sb(), ',"');
@@ -3004,58 +3097,45 @@ $$.Closure17 = {"":
 
 $$.Closure18 = {"":
  ["box_0"],
- super: "Closure33",
+ super: "Closure39",
  $call$1: function(msg) {
-  if (msg.get$hasErrors() === true) {
-    this.box_0.completer_2.completeException$1('failed to open database ' + $.S(this.box_0.name_1));
-  } else {
-    var db = $._DeviceDatabaseImpl$1(this.box_0.connectionId_3);
-    this.box_0.completer_2.complete$1(db);
-  }
+  var info = $._DeviceInfoImpl(msg.get$content());
+  this.box_0.completer_1.complete$1(info);
  }
 };
 
-$$.Closure19 = {"":
+$$.Closure21 = {"":
  ["box_0"],
- super: "Closure33",
+ super: "Closure39",
  $call$1: function(msg) {
-  var info = $._DeviceInfoImpl(msg.get$content());
-  this.box_0.completer_12.complete$1(info);
+  if (msg.get$hasErrors() === true) {
+    this.box_0.completer_12.completeException$1(msg.get$error());
+  } else {
+    var result = $._SQLBatchResultImpl$1(msg);
+    this.box_0.completer_12.complete$1(result);
+  }
  }
 };
 
 $$.Closure22 = {"":
- ["box_0"],
- super: "Closure33",
- $call$1: function(msg) {
-  if (msg.get$hasErrors() === true) {
-    this.box_0.completer_13.completeException$1(msg.get$error());
-  } else {
-    var result = $._SQLBatchResultImpl$1(msg);
-    this.box_0.completer_13.complete$1(result);
-  }
- }
-};
-
-$$.Closure23 = {"":
  ["this_0"],
- super: "Closure33",
+ super: "Closure39",
  $call$1: function(data) {
   $.add$1(this.this_0.get$results(), $._SQLResultImpl$2($.index(data, 'query'), $.index(data, 'result')));
  }
 };
 
-$$.Closure25 = {"":
+$$.Closure24 = {"":
  [],
- super: "Closure33",
+ super: "Closure39",
  $call$1: function(n) {
   return typeof n === 'object' && n.is$Element();
  }
 };
 
-$$.Closure26 = {"":
+$$.Closure25 = {"":
  ["box_0", "output_2"],
- super: "Closure33",
+ super: "Closure39",
  $call$1: function(element) {
   if (this.box_0.f_12.$call$1(element) === true) {
     $.add$1(this.output_2, element);
@@ -3063,41 +3143,58 @@ $$.Closure26 = {"":
  }
 };
 
-$$.Closure27 = {"":
+$$.Closure26 = {"":
  [],
- super: "Closure33",
+ super: "Closure39",
  $call$1: function(el) {
   return el.remove$0();
  }
 };
 
-$$.Closure28 = {"":
+$$.Closure27 = {"":
  ["this_2", "box_0"],
- super: "Closure33",
+ super: "Closure39",
  $call$1: function(key) {
   return this.box_0.f_13.$call$2(key, $.index(this.this_2, key));
  }
 };
 
-$$.Closure29 = {"":
+$$.Closure33 = {"":
+ ["box_0"],
+ super: "Closure39",
+ $call$1: function(msg) {
+  var btnIndex = msg.get$content();
+  this.box_0.completer_13.complete$1(btnIndex);
+ }
+};
+
+$$.Closure34 = {"":
+ ["box_0"],
+ super: "Closure39",
+ $call$1: function(msg) {
+  this.box_0.completer_14.complete$1(msg.get$content());
+ }
+};
+
+$$.Closure35 = {"":
  ["this_0"],
- super: "Closure33",
+ super: "Closure39",
  $call$1: function(value) {
   this.this_0.add$1(value);
  }
 };
 
-$$.Closure30 = {"":
+$$.Closure36 = {"":
  ["box_0"],
- super: "Closure33",
+ super: "Closure39",
  $call$2: function(key, value) {
   this.box_0.f_14.$call$1(key);
  }
 };
 
-$$.Closure31 = {"":
+$$.Closure37 = {"":
  ["box_0"],
- super: "Closure33",
+ super: "Closure39",
  $call$2: function(key, value) {
   if (this.box_0.f_15.$call$1(key) === true) {
     $.add$1(this.box_0.result_2, key);
@@ -3105,7 +3202,7 @@ $$.Closure31 = {"":
  }
 };
 
-$$.Closure33 = {"":
+$$.Closure39 = {"":
  [],
  super: "Object",
  toString$0: function() {
@@ -3113,10 +3210,10 @@ $$.Closure33 = {"":
  }
 };
 
-Isolate.$defineClass('Closure32', 'Closure33', ['self', 'target'], {
+Isolate.$defineClass('Closure38', 'Closure39', ['self', 'target'], {
 $call$0: function() { return this.self[this.target](); }
 });
-Isolate.$defineClass('Closure34', 'Closure33', ['self', 'target'], {
+Isolate.$defineClass('Closure40', 'Closure39', ['self', 'target'], {
 $call$1: function(p0) { return this.self[this.target](p0); }
 });
 $.mul$slow = function(a, b) {
@@ -3461,15 +3558,15 @@ $.invokeClosure = function(closure, isolate, numberOfArguments, arg1, arg2) {
   }
 };
 
+$.gt = function(a, b) {
+  return typeof a === 'number' && typeof b === 'number' ? (a > b) : $.gt$slow(a, b);
+};
+
 $.last = function(receiver) {
   if ($.isJsArray(receiver) !== true) {
     return receiver.last$0();
   }
   return $.index(receiver, $.sub($.get$length(receiver), 1));
-};
-
-$.gt = function(a, b) {
-  return typeof a === 'number' && typeof b === 'number' ? (a > b) : $.gt$slow(a, b);
 };
 
 $.String$fromCharCodes = function(charCodes) {
@@ -4687,7 +4784,7 @@ $.dynamicFunction = function(name$) {
     return f.methods;
   }
   var methods = ({});
-  var dartMethod = (Object.getPrototypeOf($.CTC13)[name$]);
+  var dartMethod = (Object.getPrototypeOf($.CTC14)[name$]);
   if (!(dartMethod === (void 0))) {
     methods['Object'] = dartMethod;
   }
@@ -4901,14 +4998,6 @@ $.startsWith = function(receiver, other) {
   return other == receiver.substring(0, length$);
 };
 
-$.forEach = function(receiver, f) {
-  if ($.isJsArray(receiver) !== true) {
-    return receiver.forEach$1(f);
-  } else {
-    return $.forEach2(receiver, f);
-  }
-};
-
 $.le = function(a, b) {
   return typeof a === 'number' && typeof b === 'number' ? (a <= b) : $.le$slow(a, b);
 };
@@ -4917,9 +5006,11 @@ $.toStringForNativeObject = function(obj) {
   return 'Instance of ' + $.S($.getTypeNameOf(obj));
 };
 
-$.forEach2 = function(iterable, f) {
-  for (var t1 = $.iterator(iterable); t1.hasNext$0() === true; ) {
-    f.$call$1(t1.next$0());
+$.forEach = function(receiver, f) {
+  if ($.isJsArray(receiver) !== true) {
+    return receiver.forEach$1(f);
+  } else {
+    return $.forEach2(receiver, f);
   }
 };
 
@@ -4928,6 +5019,12 @@ $.trim = function(receiver) {
     return receiver.trim$0();
   }
   return receiver.trim();
+};
+
+$.forEach2 = function(iterable, f) {
+  for (var t1 = $.iterator(iterable); t1.hasNext$0() === true; ) {
+    f.$call$1(t1.next$0());
+  }
 };
 
 $._addHtml = function(html) {
@@ -4971,7 +5068,7 @@ $.getFunctionForTypeNameOf = function() {
     return $.typeNameInChrome;
   }
   var userAgent = (navigator.userAgent);
-  if ($.contains$1(userAgent, $.CTC12) === true) {
+  if ($.contains$1(userAgent, $.CTC13) === true) {
     return $.typeNameInChrome;
   } else {
     if ($.contains$1(userAgent, 'Firefox') === true) {
@@ -4996,14 +5093,14 @@ $.index = function(a, index) {
   return $.index$slow(a, index);
 };
 
+$._ElementEventsImpl$1 = function(_ptr) {
+  return new $._ElementEventsImpl(_ptr);
+};
+
 $.forEach3 = function(iterable, f) {
   for (var t1 = $.iterator(iterable); t1.hasNext$0() === true; ) {
     f.$call$1(t1.next$0());
   }
-};
-
-$._ElementEventsImpl$1 = function(_ptr) {
-  return new $._ElementEventsImpl(_ptr);
 };
 
 $.toLowerCase = function(receiver) {
@@ -5096,6 +5193,12 @@ $.eq = function(a, b) {
   return a === b;
 };
 
+$.StringBufferImpl$1 = function(content$) {
+  var t1 = new $.StringBufferImpl((void 0), (void 0));
+  t1.StringBufferImpl$1(content$);
+  return t1;
+};
+
 $.HashMapImplementation$0 = function() {
   var t1 = new $.HashMapImplementation((void 0), (void 0), (void 0), (void 0), (void 0));
   t1.HashMapImplementation$0();
@@ -5107,12 +5210,6 @@ $.substring$1 = function(receiver, startIndex) {
     return receiver.substring$1(startIndex);
   }
   return $.substring$2(receiver, startIndex, (void 0));
-};
-
-$.StringBufferImpl$1 = function(content$) {
-  var t1 = new $.StringBufferImpl((void 0), (void 0));
-  t1.StringBufferImpl$1(content$);
-  return t1;
 };
 
 $._SharedWorkerContextEventsImpl$1 = function(_ptr) {
@@ -5457,10 +5554,11 @@ $.CTC5 = new Isolate.$isolateProperties.JsonUnsupportedObjectType();
 $.CTC7 = Isolate.makeConstantList(['body', 'head', 'caption', 'td', 'colgroup', 'col', 'tr', 'tbody', 'tfoot', 'thead', 'track']);
 $.CTC8 = new Isolate.$isolateProperties.ConstantMap(Isolate.$isolateProperties.CTC7, {'body': 'html', 'head': 'html', 'caption': 'table', 'td': 'tr', 'colgroup': 'table', 'col': 'colgroup', 'tr': 'tbody', 'tbody': 'table', 'tfoot': 'table', 'thead': 'table', 'track': 'audio'}, 11);
 $.CTC2 = new Isolate.$isolateProperties._DeletedKeySentinel();
-$.CTC13 = new Isolate.$isolateProperties.Object();
-$.CTC12 = new Isolate.$isolateProperties.JSSyntaxRegExp(false, false, 'Chrome|DumpRenderTree');
+$.CTC14 = new Isolate.$isolateProperties.Object();
+$.CTC13 = new Isolate.$isolateProperties.JSSyntaxRegExp(false, false, 'Chrome|DumpRenderTree');
 $.CTC6 = new Isolate.$isolateProperties.JSSyntaxRegExp(false, false, '<(\\w+)');
 $.CTC11 = new Isolate.$isolateProperties.IllegalAccessException();
+$.CTC12 = new Isolate.$isolateProperties.JSSyntaxRegExp(false, false, '^#[_a-zA-Z]\\w*$');
 $.CTC10 = new Isolate.$isolateProperties.IllegalArgumentException('Invalid list length');
 $.CTC3 = new Isolate.$isolateProperties.NoMoreElementsException();
 $.CTC4 = new Isolate.$isolateProperties.EmptyQueueException();
@@ -5666,14 +5764,14 @@ _ConsoleImpl = (typeof console == 'undefined' ? {} : console);
 _ConsoleImpl.info$1 = function(arg) {
   return this.info(arg);
  };
-_ConsoleImpl.get$info = function() { return new $.Closure34(this, 'info$1'); };
+_ConsoleImpl.get$info = function() { return new $.Closure40(this, 'info$1'); };
 _ConsoleImpl.group$1 = function(arg) {
   return this.group(arg);
  };
 _ConsoleImpl.error$1 = function(arg) {
   return this.error(arg);
  };
-_ConsoleImpl.get$error = function() { return new $.Closure34(this, 'error$1'); };
+_ConsoleImpl.get$error = function() { return new $.Closure40(this, 'error$1'); };
 _ConsoleImpl.debug$1 = function(arg) {
   return this.debug(arg);
  };
@@ -5846,6 +5944,18 @@ $.$defineNativeClass('HTMLDivElement', [], {
 });
 
 $.$defineNativeClass('HTMLDocument', ["body?"], {
+ query$1: function(selectors) {
+  if ($.CTC12.hasMatch$1(selectors) === true) {
+    return this.$dom_getElementById$1($.substring$1(selectors, 1));
+  }
+  return this.$dom_querySelector$1(selectors);
+ },
+ $dom_querySelector$1: function(selectors) {
+  return this.querySelector(selectors);
+ },
+ $dom_getElementById$1: function(elementId) {
+  return this.getElementById(elementId);
+ },
  get$on: function() {
   return $._DocumentEventsImpl$1(this);
  },
@@ -5853,9 +5963,15 @@ $.$defineNativeClass('HTMLDocument', ["body?"], {
 });
 
 $.$defineNativeClass('DocumentFragment', [], {
+ $dom_querySelector$1: function(selectors) {
+  return this.querySelector(selectors);
+ },
  get$on: function() {
   return $._ElementEventsImpl$1(this);
  },
+ click$0: function() {
+ },
+ get$click: function() { return new $.Closure38(this, 'click$0'); },
  get$parent: function() {
   return;
  },
@@ -5876,6 +5992,9 @@ $.$defineNativeClass('DocumentFragment', [], {
     return Object.prototype.set$innerHTML.call(this, value);
   }
  },
+ query$1: function(selectors) {
+  return this.$dom_querySelector$1(selectors);
+ },
  get$elements: function() {
   if ($.eqNullB(this._elements)) {
     this._elements = $.FilteredElementList$1(this);
@@ -5889,12 +6008,19 @@ $.$defineNativeClass('DocumentType', ["name?"], {
 });
 
 $.$defineNativeClass('Element', ["innerHTML!"], {
+ $dom_querySelector$1: function(selectors) {
+  return this.querySelector(selectors);
+ },
  get$$$dom_lastElementChild: function() {
   return this.lastElementChild;;
  },
  get$$$dom_firstElementChild: function() {
   return this.firstElementChild;;
  },
+ click$0: function() {
+  return this.click();
+ },
+ get$click: function() { return new $.Closure38(this, 'click$0'); },
  get$$$dom_children: function() {
   return this.children;;
  },
@@ -5904,6 +6030,9 @@ $.$defineNativeClass('Element', ["innerHTML!"], {
   } else {
     return Object.prototype.get$on.call(this);
   }
+ },
+ query$1: function(selectors) {
+  return this.$dom_querySelector$1(selectors);
  },
  get$elements: function() {
   if (Object.getPrototypeOf(this).hasOwnProperty('get$elements')) {
@@ -7926,6 +8055,9 @@ $.$defineNativeClass('DOMWindow', ["screen?", "navigator?", "name?", "length?"],
   creationCallback = $.convertDartClosureToJS(creationCallback, 1);
   return this.openDatabase(name$,version,displayName,estimatedSize);
 },
+ confirm$1: function(message) {
+  return this.confirm(message);
+ },
  alert$1: function(message) {
   return this.alert(message);
  },
