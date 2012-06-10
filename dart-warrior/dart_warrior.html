@@ -1,0 +1,40 @@
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <!-- let mobile devices automatically scale view port and disable pinch zoom -->
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <!-- allow users to install the app to their desktop --> 
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <!-- style the top status bar -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    
+    <title>Jewel Warrior</title>
+    
+    <link rel="stylesheet" href="styles/main.css" />
+    <link rel="stylesheet" href="styles/fontfaces.css" />
+    <!-- override styles for devices that are atmost 768px wide in portrait and 1024px in landscape mode-->
+    <link rel="stylesheet" href="styles/mobile.css" 
+          media="screen and (max-device-width: 768px) and (orientation: portrait),
+                 screen and (max-device-width: 1024px) and (orientation: landscape)"/>
+    
+    <!-- iOS desktop icon's -->             
+    <link rel="apple-touch-icon-precomposed" href="images/ios-icon.png"/>  
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ios-icon-ipad.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ios-icon-iphone4.png"/>
+
+	<!-- override iOS' startup image -->
+    <link rel="apple-touch-startup-image" 
+          href="images/ios-startup-748x1024.png" 
+          media="screen and (min-device-width: 768px) and (orientation:landscape)" />
+    <link rel="apple-touch-startup-image" 
+          href="images/ios-startup-768x1004.png" 
+          media="screen and (min-device-width: 768px) and (orientation:portrait)" />
+    <link rel="apple-touch-startup-image" 
+          href="images/ios-startup-320x460.png"
+          media="screen and (max-device-width:320px)"/>
+  </head>
+  <body>
+    <script type="application/dart" src="dart_warrior.dart"></script>
+    <script src="http://dart.googlecode.com/svn/branches/bleeding_edge/dart/client/dart.js"></script>
+  </body>
+</html>
