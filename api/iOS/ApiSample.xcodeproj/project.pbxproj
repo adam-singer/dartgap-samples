@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		468426E615846E2A0064D565 /* www in Resources */ = {isa = PBXBuildFile; fileRef = 468426E515846E2A0064D565 /* www */; };
 		46E36929158457B40060891D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46E36928158457B40060891D /* Foundation.framework */; };
 		46E3692B158457B40060891D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46E3692A158457B40060891D /* UIKit.framework */; };
 		46E3692D158457B40060891D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46E3692C158457B40060891D /* CoreGraphics.framework */; };
@@ -40,6 +41,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		468426E515846E2A0064D565 /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = "<group>"; };
 		46E36924158457B40060891D /* ApiSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ApiSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46E36928158457B40060891D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		46E3692A158457B40060891D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -114,6 +116,7 @@
 		46E36916158457B40060891D = {
 			isa = PBXGroup;
 			children = (
+				468426E515846E2A0064D565 /* www */,
 				46E36942158457B40060891D /* ApiSample */,
 				46E36927158457B40060891D /* Frameworks */,
 				46E36925158457B40060891D /* Products */,
@@ -328,6 +331,7 @@
 				46E3696B158457B50060891D /* Capture.bundle in Resources */,
 				46E3696D158457B50060891D /* Cordova.plist in Resources */,
 				46E36976158457B50060891D /* MainViewController.xib in Resources */,
+				468426E615846E2A0064D565 /* www in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -539,6 +543,7 @@
 				46E3697E158457B50060891D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
