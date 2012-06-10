@@ -1,0 +1,5 @@
+VERSION=1.8.0rc1
+PROJECT_PATH=../../common/dartgap/samples/api-sample/android
+PACKAGE=com.qalqo.dartgap
+ACTIVITY=ApiApp
+TARGET=1
